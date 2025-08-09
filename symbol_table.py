@@ -47,18 +47,35 @@ class SymbolTable:
         else:
             print(f"Cannot delete: '{name}' not found.")
 
-    def update(self, name, new_typ=None, new_size=None, new_dimension=None, new_line=None, new_address=None):
+    def update(self, name, new_name=None, new_typ=None, new_size=None, new_dimension=None, new_line=None, new_address=None):
         if name in self.table:
             symbol = self.table[name]
+        
+        
+            if new_name and new_name != name:
+               if new_name in self.table:
+                   print(f"Error: '{new_name}' already exists in the table.")
+                   return
+            
+               del self.table[name]
+               symbol.name = new_name
+               self.table[new_name] = symbol
+               name = new_name  
+        
+        
             symbol.typ = new_typ or symbol.typ
             symbol.size = new_size or symbol.size
             symbol.dimension = new_dimension or symbol.dimension
             symbol.line = new_line or symbol.line
             symbol.address = new_address or symbol.address
-            symbol.bucket = self.simple_hash(symbol.name)  
+        
+       
+            symbol.bucket = self.simple_hash(symbol.name)
+        
             print(f"Updated: {symbol}")
         else:
             print(f"Cannot update: '{name}' not found.")
+
 
     def show(self):
         if not self.table:
@@ -98,6 +115,7 @@ def menu():
         elif choice == '3':
             name = input("Enter NAME to Update: ")
             print("Enter new values (leave blank to keep unchanged):")
+            new_name = input("New NAME: ")
             new_typ = input("New TYPE: ")
             new_size = input("New SIZE: ")
             new_dim = input("New DIMENSION: ")
@@ -105,6 +123,7 @@ def menu():
             new_addr = input("New ADDRESS: ")
             sym_table.update(
                 name,
+                new_name or None,
                 new_typ or None,
                 new_size or None,
                 new_dim or None,
