@@ -1,0 +1,93 @@
+Program:
+  Function: int main
+    Compound Block:
+      Decl: int x
+      Assign: x =
+        IntConst: 10
+      Decl: float y
+      Assign: y =
+        FloatConst: 5.5
+      Decl: int result
+      If:
+        Condition:
+          Binary: >
+            Left:
+              VarRef: x
+            Right:
+              IntConst: 5
+        Then:
+          Compound Block:
+            ExprStmt:
+              Assign: result =
+                Binary: +
+                  Left:
+                    VarRef: x
+                  Right:
+                    VarRef: y
+        Else:
+          Compound Block:
+            ExprStmt:
+              Assign: result =
+                Binary: -
+                  Left:
+                    VarRef: x
+                  Right:
+                    VarRef: y
+      While:
+        Condition:
+          Binary: >
+            Left:
+              VarRef: x
+            Right:
+              IntConst: 0
+        Body:
+          Compound Block:
+            ExprStmt:
+              Assign: x =
+                Binary: -
+                  Left:
+                    VarRef: x
+                  Right:
+                    IntConst: 1
+      For:
+        Init:
+          Assign: i =
+            IntConst: 0
+        Cond:
+          Binary: <
+            Left:
+              VarRef: i
+            Right:
+              IntConst: 5
+        Post:
+          Assign: i =
+            Binary: +
+              Left:
+                VarRef: i
+              Right:
+                IntConst: 1
+        Body:
+          Compound Block:
+            ExprStmt:
+              Assign: result =
+                Binary: +
+                  Left:
+                    VarRef: result
+                  Right:
+                    VarRef: i
+      Return:
+        VarRef: result
+  Function: float calculate
+    Param: int a
+    Param: float b
+    Compound Block:
+      Return:
+        Binary: +
+          Left:
+            Binary: *
+              Left:
+                VarRef: a
+              Right:
+                VarRef: b
+          Right:
+            FloatConst: 2.0

@@ -1,0 +1,8 @@
+Semantic Analyzer's Output:
+
+Result: FAILED - Semantic errors found.
+
+Errors:
+==================================================
+• Assignment type mismatch: int = float
+• Assignment type mismatch: int = float

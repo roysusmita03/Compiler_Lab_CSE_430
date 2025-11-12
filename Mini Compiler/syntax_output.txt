@@ -1,0 +1,102 @@
+Syntax Analyzer's Output:
+
+Result: SUCCESS - No syntax errors found.
+
+Abstract Syntax Tree (AST):
+==================================================
+PROGRAM
+    ├── FUNCTION: int main
+    │   └── BODY
+    │       └── COMPOUND
+    │           │   ├── DECL: int x
+    │           │   ├── ASSIGN: x
+    │           │   │   └── INT: 10
+    │           │   ├── DECL: float y
+    │           │   ├── ASSIGN: y
+    │           │   │   └── FLOAT: 5.5
+    │           │   ├── DECL: int result
+    │           │   ├── IF
+    │           │   │   ├── CONDITION
+    │           │   │   │   ├── BINARY: >
+    │           │   │   │   │   ├── LEFT
+    │           │   │   │   │   │   ├── VAR: x
+    │           │   │   │   │   └── RIGHT
+    │           │   │   │   │       └── INT: 5
+    │           │   │   ├── THEN
+    │           │   │   │   ├── COMPOUND
+    │           │   │   │   │       └── EXPR_STMT
+    │           │   │   │   │           └── ASSIGN: result
+    │           │   │   │   │               └── BINARY: +
+    │           │   │   │   │                   ├── LEFT
+    │           │   │   │   │                   │   ├── VAR: x
+    │           │   │   │   │                   └── RIGHT
+    │           │   │   │   │                       └── VAR: y
+    │           │   │   └── ELSE
+    │           │   │       └── COMPOUND
+    │           │   │               └── EXPR_STMT
+    │           │   │                   └── ASSIGN: result
+    │           │   │                       └── BINARY: -
+    │           │   │                           ├── LEFT
+    │           │   │                           │   ├── VAR: x
+    │           │   │                           └── RIGHT
+    │           │   │                               └── VAR: y
+    │           │   ├── WHILE
+    │           │   │   ├── CONDITION
+    │           │   │   │   ├── BINARY: >
+    │           │   │   │   │   ├── LEFT
+    │           │   │   │   │   │   ├── VAR: x
+    │           │   │   │   │   └── RIGHT
+    │           │   │   │   │       └── INT: 0
+    │           │   │   └── BODY
+    │           │   │       └── COMPOUND
+    │           │   │               └── EXPR_STMT
+    │           │   │                   └── ASSIGN: x
+    │           │   │                       └── BINARY: -
+    │           │   │                           ├── LEFT
+    │           │   │                           │   ├── VAR: x
+    │           │   │                           └── RIGHT
+    │           │   │                               └── INT: 1
+    │           │   ├── FOR
+    │           │   │   ├── INIT
+    │           │   │   │   ├── ASSIGN: i
+    │           │   │   │   │   └── INT: 0
+    │           │   │   ├── CONDITION
+    │           │   │   │   ├── BINARY: <
+    │           │   │   │   │   ├── LEFT
+    │           │   │   │   │   │   ├── VAR: i
+    │           │   │   │   │   └── RIGHT
+    │           │   │   │   │       └── INT: 5
+    │           │   │   ├── POST
+    │           │   │   │   └── ASSIGN: i
+    │           │   │   │       └── BINARY: +
+    │           │   │   │           ├── LEFT
+    │           │   │   │           │   ├── VAR: i
+    │           │   │   │           └── RIGHT
+    │           │   │   │               └── INT: 1
+    │           │   │   └── BODY
+    │           │   │       └── COMPOUND
+    │           │   │               └── EXPR_STMT
+    │           │   │                   └── ASSIGN: result
+    │           │   │                       └── BINARY: +
+    │           │   │                           ├── LEFT
+    │           │   │                           │   ├── VAR: result
+    │           │   │                           └── RIGHT
+    │           │   │                               └── VAR: i
+    │               └── RETURN
+    │                   └── VAR: result
+    └── FUNCTION: float calculate
+        ├── PARAMETERS
+        │   ├── int a
+        │   └── float b
+        └── BODY
+            └── COMPOUND
+                    └── RETURN
+                        └── BINARY: +
+                            ├── LEFT
+                            │   ├── BINARY: *
+                            │   │   ├── LEFT
+                            │   │   │   ├── VAR: a
+                            │   │   └── RIGHT
+                            │   │       └── VAR: b
+                            └── RIGHT
+                                └── FLOAT: 2.0

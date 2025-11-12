@@ -1,0 +1,58 @@
+Intermediate Code Generation Output:
+==================================================
+
+# Intermediate Code Generation Output
+# ===================================
+
+# Function: int main
+FUNC_main:
+    # Declare int x
+    x = 10
+    # Declare float y
+    y = 5.5
+    # Declare int result
+    t1 = x > 5
+    IF t1 == 0 GOTO L1
+    t2 = x + y
+    result = t2
+    # Expression: result
+    GOTO L2
+L1:
+    t3 = x - y
+    result = t3
+    # Expression: result
+L2:
+L3:
+    t4 = x > 0
+    IF t4 == 0 GOTO L4
+    t5 = x - 1
+    x = t5
+    # Expression: x
+    GOTO L3
+L4:
+    i = 0
+L5:
+    t6 = i < 5
+    IF t6 == 0 GOTO L7
+    GOTO L6
+L6:
+    t7 = result + i
+    result = t7
+    # Expression: result
+    t8 = i + 1
+    i = t8
+    GOTO L5
+L7:
+    RETURN result
+END_FUNC_main:
+
+
+# Function: float calculate
+FUNC_calculate:
+    PARAM a
+    PARAM b
+    t9 = a * b
+    t10 = t9 + 2.0
+    RETURN t10
+END_FUNC_calculate:
+

@@ -1,0 +1,10 @@
+TOKEN#  DATA TYPE   TOKEN_TYPE     TOKEN_VALUE    LINE OF CODE        DIMENSION ADDRESS   
+-------------------------------------------------------------------------------------------
+1       int         Function       main           1                   1         0         
+2       int         Identifier     x              2                   1         0         
+3       float       Identifier     y              3                   1         0         
+4       int         Identifier     result         4                   1         0         
+5       int         Identifier     i              0                   1         0         
+6       float       Function       calculate      19                  1         0         
+7       int         Parameter      a              19                  1         0         
+8       float       Parameter      b              19                  1         0         
